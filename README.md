@@ -1,35 +1,33 @@
-# SpaceInvaders (Graphical User Interface (GUI))
-A shooter game in which the player controls a laser ship to remove all aliens from the space. The GUI has aliens at the top and the ship that the user controls at the bottom. The ship is moved horizontally across the bottom of the screen using the right and left arrow keys to while using spacebar to fire at aliens. The objective of the game is to remove all aliens from the gamespace. 
+# SpaceInvaders (Graphical User Interface)
 
-### Prerequisites
+A shooter game in which the player controls a laser ship to remove all aliens from the space. The Graphical User Interface (GUI) has aliens at the top and the ship at the bottom that the user controls at the bottom. The ship is moved horizontally across the bottom of the screen using the right and left arrow keys to while using spacebar to fire at aliens. The objective of the game is to remove all aliens.
+
+## Prerequisites
 You will need to install JDK(Java Development Kit) and an IDE, for example Eclipse.
 
 To set up a Java Development Environment, follow the download links:
-
 https://www.oracle.com/technetwork/java/archive-139210.html
-
 https://www.eclipse.org/downloads/
+https://www.youtube.com/watch?v=klob1me6O6Q
 
-You will need to install JavaFx. This will depend on if you run the game on Eclipse or on the Terminal. Follow the instructions below. 
-
+You will need to install JavaFx. Follow the instructions below.
 
 ## How to execute the game on Eclipse
-* Download all the files from this Github as a Zipped Download. Extract the files and move all files to your desktop for easy access. You may use another folder but you must make sure all the files are in the same folder. Open the Eclipse program and create a new Java Project. Import the files from your desktop to this Java Project. When all files have successfully imported over into the same Project on Eclipse, you are now ready to run the 'Main.java' file to start the game. 
+• Download all the files from the SpaceInvaders branch as a Zipped Download. Extract the SpaceInvaders and res folders to your desktop for easy access. Open the Eclipse program. Install JavaFX following the instructions on this link: 
 
-Instructions to install JavaFX on Eclipse: https://bittlife.com/install-javafx-eclipse/
-//BARE WITH ME THIS WILL BE ELABORATED ON ITS REALLY BAD RN 
+https://bittlife.com/install-javafx-eclipse/
+
+Create a new Java FX Project and import the GitHub project into Eclipse following the instructions on this link: 
+
+https://github.com/collab-uniba/socialcde4eclipse/wiki/How-to-import-a-GitHub-project-into-Eclipse
+
+. Import the files from your dekstop to this Java Project. You will run the Main.java file to start the game. 
+move all files to your desktop for easy access. You may use another folder but you must make sure all the files are in the same folder. 
 
 ## How to execute the game on Terminal
-Download all the files from this Github as a Zipped Download. Extract the files and move all files to a folder. Open a command prompt window and go to the directory where you saved the files (MyFirstJavaProgram.java). Assume it's C:. Type 'javac FirstFileName.java' for each file name and press enter to compile your code. You will have to compile each file from Github. If there are no errors in your code, the command prompt will take you to the next line (Assumption: The path variable is set). Now, type 'java Main' to run the game. You will be able to see the gamespace printed on the window.
+Download all the files from this Github as a Zipped Download. Extract the SpaceInvaders and res folders to your desktop. Open a command prompt window and go to the directory where you saved the file. Ensure all the files are in the same directory. Assume it's C:. Type 'javac Main.java' to compile your code. You will have to compile each file from Github. If there are no errors in your code, the command prompt will take you to the next line (Assumption: The path variable is set). Now, type 'java Main' to run the game. You will be able to see the gamespace printed on the window.
+ 
+### Demo 2
+When you have successfully downloaded the game, there will be aliens scattered throughout the black screen with the ship at the bottom. 
 
-## Demo 1
-When downloaded correctly, playing the game on the console would look like this:
-
-![](Demo1.gif)
-
-## Demo 2
-When downloaded correctly, the GUI would look like this:
-
-
-
-## Hope you enjoy the game! 
+Hope you enjoy the game!
