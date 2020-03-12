@@ -1,4 +1,4 @@
-# SpaceInvaders (Graphical User Interface)
+# Space Invaders (Graphical User Interface)
 
 A shooter game in which the player controls a laser ship to remove all aliens from the space. The Graphical User Interface (GUI) has aliens at the top and the ship at the bottom that the user controls at the bottom. The ship is moved horizontally across the bottom of the screen using the right and left arrow keys to while using spacebar to fire at aliens. The objective of the game is to remove all aliens.
 
