@@ -1,13 +1,21 @@
 package SpaceInvaders;
 
+import javafx.animation.Animation;
+import javafx.animation.TranslateTransition;
+import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.util.Duration;
 
 public class MovableObject {
     int xPos,yPos;      // the origin point of the object
-    int extend;         // the ammout the sprite extends past the original cord
-    int xSpeed, ySpeed; // the directino that the object is going in
+    int extend;         // the amount the sprite extends past the original cord
+    int xSpeed, ySpeed; // the direction that the object is going in
     int speed = 10;     // default speed
     int health;         // the health of the object
+	public Image image;
+	public Group root;
 
 
     // the default constructor for the class
@@ -16,22 +24,32 @@ public class MovableObject {
         yPos = yP;
         extend = e;
         health = h;
-
     }
+    
+
     //this function moves the object
     public void move(String s) {
         if (s == "R"){
-            if (this.xPos<550)this.xPos += xSpeed;
+            if (this.xPos<550)
+            	{this.xPos += xSpeed;
+            	}
         }else if (s == "L"){
-            if (this.xPos>50) this.xPos -= xSpeed;
+            if (this.xPos>50) 
+            {this.xPos -= xSpeed;
+            }
         }else if (s == "U"){
-            if (this.yPos > 50) this.yPos -= ySpeed;
+            if (this.yPos > 50) 
+            	{this.yPos -= ySpeed;
+            	}
         }else if (s == "D"){
-            if (this.yPos < 550) this.yPos += ySpeed;
+            if (this.yPos < 550) 
+            	{this.yPos += ySpeed;
+            	}
         }
     }
 
-    //checks collision with the bullet
+
+	//checks collision with the bullet
     public void colCheck(Bullet bullet){
         // checks if the bullet xPos is within the moving object yPos + extend
         if (bullet.xPos >= this.xPos && bullet.xPos <= this.xPos+this.extend){
@@ -51,7 +69,7 @@ public class MovableObject {
         }
 
     }
-    //decreaces the health and deletes the object if needed
+    //decreases the health and deletes the object if needed
     public void takeDamage(){
     boolean dead = false;
        health -= 1;
@@ -59,7 +77,10 @@ public class MovableObject {
     	   dead = true;
        }
     }
+    
 
+    
+    
     
 }
 
