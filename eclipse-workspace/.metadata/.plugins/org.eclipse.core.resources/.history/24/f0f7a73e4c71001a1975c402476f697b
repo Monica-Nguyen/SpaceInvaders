@@ -1,0 +1,10 @@
+package SpaceInvaders;
+
+import javafx.animation.TranslateTransition;
+import javafx.scene.Group;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.util.Duration;
+
+public class Bullet extends MovableObject {
+}

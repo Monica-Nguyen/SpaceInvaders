@@ -1,0 +1,113 @@
+package application;
+
+import javafx.animation.AnimationTimer;
+import javafx.application.Application;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+
+
+public class Ship extends Application
+{
+	private Pane root = new Pane();
+	
+	private xWing player = new xWing(300, 750, 40, 40, "player", Color.RED);
+	
+	private Parent createContent()
+	{
+		//set window size
+		root.setPrefSize(600, 800);
+		//shows the ship on the screen
+		root.getChildren().add(player);
+		
+		//creating a smoother movement
+		AnimationTimer timer = new AnimationTimer()
+		{
+			public void handle(long now)
+			{
+				update();
+			}
+		};
+		//main timer
+		timer.start();
+			
+		return root;
+	}
+	
+	private void update()
+	{
+	}
+		
+	private void shoot()
+	{
+	}
+	
+	@Override
+	public void start(Stage primaryStage) throws Exception
+	{
+		Scene scene = new Scene(createContent());
+		
+		scene.setOnKeyPressed(e -> 
+		{
+			//code that connects to Sanjita's ship for the move. 
+			switch (e.getCode()) 
+			{
+			//connects with the arrow keys
+			case A:
+				//in the main call moveLeft() - same goes for the rest below
+				player.moveLeft();
+				break;
+			case D:
+				player.moveRight();
+				break;
+			case SPACE:
+				shoot();
+				break;
+			}
+		});
+		primaryStage.setScene(scene);
+		primaryStage.show();
+	}
+	
+	private static class xWing extends Rectangle
+	{
+		boolean dead = false; 
+		final String type;
+		
+		xWing(int x, int y, int h, int w, String type, Color color)
+		{
+			super(w, h, color);
+			
+			this.type = type;
+			setTranslateX(x);
+			setTranslateY(y);
+		}
+		
+		void moveLeft()
+		{
+			setTranslateX(getTranslateX() - 5);
+		}
+		void moveRight()
+		{
+			setTranslateX(getTranslateX() + 5);
+		}
+		void moveUp()
+		{
+			setTranslateY(getTranslateY() - 5);
+		}
+		void moveDown()
+		{
+			setTranslateY(getTranslateY() + 5);
+		}
+	}
+	
+	public static void main(String[] args)
+	{
+		launch(args);
+	}
+	
+	
+}

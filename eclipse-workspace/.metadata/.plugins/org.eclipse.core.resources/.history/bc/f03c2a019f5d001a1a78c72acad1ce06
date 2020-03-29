@@ -1,0 +1,61 @@
+public class Theatre {
+	
+	private String title;
+	private int rating;
+	
+	public Theatre()
+	{
+		title = "";
+		rating = 0;
+	}
+	
+	public Theatre(String aTitle, int aRating)
+	{
+		this.title = aTitle; 
+		this.rating = aRating; 
+	}
+	
+	public Theatre(Theatre toCopy)
+	{
+	}
+	
+	public String setTitle(String aTitle)
+	{
+		title = aTitle.toUpperCase();
+		return title;
+	}
+
+	public String getTitle()
+	{
+		return title;
+	}
+	public String getCategory()
+	{
+		String category; 
+		if (rating >= 9) {
+			category = "A";
+		}
+		else if (rating >= 7) {
+			category = "B";
+		}
+		else if (rating >= 5) {
+			category = "C";
+		}
+		else if (rating >= 3) {
+			category = "D";
+		}
+		else category = "F";
+		return category;
+	}
+	public int getRating()
+	{
+		return rating;
+	}
+	
+	public int setRating (int aRating)
+	{
+		return rating;
+	}
+	
+
+}

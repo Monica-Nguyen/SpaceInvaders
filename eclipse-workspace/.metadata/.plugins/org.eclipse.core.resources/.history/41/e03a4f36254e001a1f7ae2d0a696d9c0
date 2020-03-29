@@ -1,0 +1,82 @@
+public class Point {
+//instance variables 
+	private int xcoord;
+	private int ycoord;
+	
+//Constructors: a copy constructor and a constructor that takes initial values of x/y coord.
+	Point(int ycoord, int xcoord)
+	{
+		this.xcoord = xcoord;
+		this.ycoord = ycoord; 
+	}
+//copy constructor
+	Point(Point1 p)
+	{
+		this.xcoord = p.xcoord;
+		this.ycoord = p.ycoord;
+	}
+//Methods: making sure it isn't a negative number 
+	public Point(int initialXcoord, int initialYcoord)
+	{
+		if ((initialXcoord < 0) || (initialYcoord < 0))
+		{
+			System.out.println("Error: x- and y-coordinates must be non-negative.");
+		}
+		else
+		{
+			xcoord = initialXcoord;
+			ycoord = initialYcoord;
+		}
+	}
+//Methods: setter method applied and making sure it is not a negative value
+	public void setPoint(int newXcoord, int newYcoord)
+	{
+		if ((newXcoord < 0) || (newYcoord < 0))
+		{
+			System.out.println("Error: Negative coordinates.");
+		}
+		else
+		{
+			xcoord = newXcoord;
+			ycoord = newYcoord;
+		}
+	}
+//M: get method - returning value
+	public int getXcoord()
+	{
+		return xcoord;
+	}
+//M: get method - returning value
+	public int getYcoord()
+	{
+		return ycoord;
+	}
+
+//M: moving up, down, left, right for the object
+	public int moveUp()
+	{
+		return ycoord;
+		
+	}
+	public int moveDown()
+	{
+		return -ycoord;
+		
+	}
+	public int moveRight()
+	{
+		return xcoord;
+		
+	}
+	public int moveLeft()
+	{
+		return -xcoord;
+	}
+	
+//M: distance - arguments (og point, point2) - returns double |og point - point2| 
+	public int distance(int Point, int newPoint)
+	{
+		return newPoint;
+	}
+	
+}

@@ -1,0 +1,45 @@
+public class Theatre {
+	
+	private String title;
+	private int rating;
+	
+	public Theatre()
+	{
+	}
+	
+	public Theatre(String aTitle, int aRating)
+	{
+		this.title = aTitle; 
+		this.rating = aRating; 
+	}
+	
+	public Theatre(Theatre toCopy)
+	{
+	}
+	
+	public String setTitle(String aTitle)
+	{
+		title = aTitle.toUpperCase();
+		return title;
+	}
+
+	public String getTitle()
+	{
+		return title;
+	}
+	public String getCategory()
+	{
+		return title;
+	}
+	public int getRating()
+	{
+		return rating;
+	}
+	
+	public int setRating (int aRating)
+	{
+		return rating;
+	}
+	
+
+}

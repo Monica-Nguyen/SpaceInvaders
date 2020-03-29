@@ -1,0 +1,55 @@
+public abstract class Animal{
+	private char type;
+	private int health;
+	
+	public Animal(char type, int health) {
+		this.type = (type == 'm') ? type : (type == 'b') ? type : (type == 'f') ? type : (type == 'r') ? type : (type == 'a') ? type : 'n'; 
+		if (health < 0)
+		{
+			health = 50;
+		}
+		else
+		{
+			this.health = health;
+		}
+		
+	}
+	
+	public Animal(Animal toCopy){
+		
+		this.type = toCopy.type;
+		this.health = toCopy.health;
+	}
+	
+	public char getType() {
+		return  this.type;
+	}
+	
+	protected void setType(char aType) {
+		this.type = (type == 'm') ? type : (type == 'b') ? type : (type == 'f') ? type : (type == 'r') ? type : (type == 'a') ? type : 'n'; 
+	}
+	public int getHealth() {
+		return this.health;
+	}
+	public void setHealth(int health) {
+		if (health > 0)
+		{
+			this.health = health;
+		}
+		else
+		{
+			health = 50;
+		}
+	}
+	
+	public abstract double getRelativeHealth();
+	
+	public String getStatus() {
+		
+		return (health <= 25) ? "critical" : (getHealth() <= 50.0) ? "good" : (getHealth() <= 75.0) ? "good" : "excellent";
+	}
+	
+	public String toString() {
+		return "Type: " + this.type + " Health: " + getRelativeHealth();
+	}
+}

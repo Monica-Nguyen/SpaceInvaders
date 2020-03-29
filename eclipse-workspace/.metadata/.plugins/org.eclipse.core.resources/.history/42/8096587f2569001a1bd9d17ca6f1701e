@@ -1,0 +1,19 @@
+public class Cat {
+   public void meow(String name) {
+      System.out.print("A");
+      try {
+         System.out.print("B");
+         int x = Integer.parseInt(name);
+         System.out.print("C");
+      } catch (Exception e) {
+         System.out.print("D");
+      }
+      System.out.print("E");
+   }
+   
+   public static void main(String[] args) {
+      Cat c = new Cat();
+      c.meow ("name");
+      System.out.print("F");
+   }
+}

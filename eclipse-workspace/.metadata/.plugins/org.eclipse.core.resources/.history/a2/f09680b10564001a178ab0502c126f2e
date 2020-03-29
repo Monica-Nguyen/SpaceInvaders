@@ -1,0 +1,81 @@
+
+import javafx.animation.AnimationTimer;
+import javafx.application.Application;
+import javafx.event.EventHandler;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.util.Duration;
+
+
+
+public class Main extends Application {
+
+	double W = 700;
+	double H = 650;
+
+	    
+	public static void main(String[] args) 
+	{
+        launch(args);
+	}
+	   
+	    @Override
+	    public void start(Stage stage) throws Exception 
+	    {
+	    	//creating imageviews for ship and aliens
+	    	ImageView shipImage = new ImageView(new Image(getClass().getResourceAsStream("/res/ship.png") /* Ignore the other four parameters if you do not want to resize the image. */, 100, 100, true, true));
+	    	Group root = new Group(shipImage);
+	    	ImageView alienImage1 = new ImageView(new Image(getClass().getResourceAsStream("/res/Alien2.png") /* Ignore the other four parameters if you do not want to resize the image. */, 300, 300, true, true));
+	    	Group alien1 = new Group(alienImage1);
+	    	ImageView alienImage2 = new ImageView(new Image(getClass().getResourceAsStream("/res/Alien3.png") /* Ignore the other four parameters if you do not want to resize the image. */, 350, 300, true, true));
+	    	Group alien2 = new Group(alienImage2);
+	    	ImageView alienImage3 = new ImageView(new Image(getClass().getResourceAsStream("/res/Alien4.png") /* Ignore the other four parameters if you do not want to resize the image. */, 350, 300, true, true));
+	    	Group alien3 = new Group(alienImage3);
+	    	
+	    	//adding images to pane
+	    	root.getChildren().add( alien1 );
+	    	root.getChildren().add( alien2 );
+	    	root.getChildren().add( alien3 );
+	    
+	    	//adding scene
+	        Scene scene = new Scene(root, W, H, Color.BLACK);
+	        //relocating images
+	        alien1.relocate(300, 150);
+	        alien2.relocate(300, 150);
+	        alien3.relocate(300, 150);
+	        shipImage.relocate(0,550);
+	     
+	        scene.setOnKeyPressed(new EventHandler<KeyEvent>(){
+	        	  @Override
+	        	  public void handle(KeyEvent event){
+	        		 //need to check bounds for ship movement and then key press 
+	        	    if (event.getCode() == KeyCode.RIGHT) {
+	        	       // if (shipImage.getLayoutX() <= W && shipImage.getLayoutX() >= 0) {
+	        	        	//shipImage.setLayoutX(shipImage.getLayoutX()+10);}
+	        	        	//else shipImage.setLayoutX(shipImage.getLayoutX()); 
+	        	      shipImage.setLayoutX(shipImage.getLayoutX() + 10);
+	        	    } else if (event.getCode() == KeyCode.LEFT) {
+	        	    	//if (shipImage.getLayoutX() <= W && shipImage.getLayoutX() >= 0) {
+	        	        	//shipImage.setLayoutX(shipImage.getLayoutX()-10);}
+	        	        	//else shipImage.setLayoutX(shipImage.getLayoutX()); 
+	        	        shipImage.setLayoutX(shipImage.getLayoutX() - 10);
+	        	    }
+	        	  }
+	        	});
+	      
+	        
+	        
+	        stage.setScene(scene);
+	        stage.show();
+	        
+	    }
+}
+	    
+	  
+	        
