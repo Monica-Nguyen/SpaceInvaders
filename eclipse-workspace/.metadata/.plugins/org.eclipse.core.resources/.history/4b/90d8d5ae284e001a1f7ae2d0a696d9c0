@@ -1,0 +1,62 @@
+public class Point {
+//instance variables 
+	private int xcoord = 0;
+	private int ycoord = 0;
+	
+//Constructors: a copy constructor and a constructor that takes initial values of x/y coord.
+	public Point(int x, int y)
+	{
+		xcoord = x;
+		ycoord = y; 
+	}
+//copy constructor
+	public Point(Point point)
+	{
+		this.xcoord = point.xcoord;
+		this.ycoord = point.ycoord;
+	}
+
+//M: get method - returning value
+	public int getXCoord()
+	{
+		return xcoord;
+	}
+//M: get method - returning value
+	public int getYCoord()
+	{
+		return ycoord;
+	}
+
+//M: moving up, down, left, right for the object
+	public int moveUp(int)
+	{
+		return ycoord;
+		
+	}
+	public int moveDown(int)
+	{
+		return ycoord;
+		
+	}
+	public int moveRight()
+	{
+		return xcoord;
+		
+	}
+	public int moveLeft()
+	{
+		return xcoord;
+	}
+	
+//M: distance - arguments (og point, point2) - returns double |og point - point2| 
+	public int distance(int Point, int newPoint)
+	{
+		return newPoint;
+	}
+//M: equals - arguments (p1, p2) - returns boolean true if both sets have same x and y coord
+	public boolean equals()
+	{
+		return false;
+		
+	}
+}

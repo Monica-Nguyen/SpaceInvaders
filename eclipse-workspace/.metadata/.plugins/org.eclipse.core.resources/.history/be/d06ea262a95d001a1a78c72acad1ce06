@@ -1,0 +1,44 @@
+import java.util.Date;
+
+public class Movie extends Theatre {
+	private String director;
+	private Date releaseDate;
+	
+	public Movie(String aTitle, int aRating, String aDirector, Date aReleaseDate)
+	{
+		
+	}
+//Copy constructor
+	public Movie(Movie toCopy)
+	{
+		
+	}
+//get category
+	public String getCategory()
+	{
+		return director;
+		
+	}
+//get director 
+	public String getDirector()
+	{
+		return director;
+		
+	}
+//set director
+	public void setDirector(String aDirector)
+	{
+		
+	}
+//get release date
+	public Date getReleaseDate()
+	{
+		return releaseDate;
+		
+	}
+//set release date
+	public void setReleaseDate(Date aReleaseDate)
+	{
+		
+	}
+}

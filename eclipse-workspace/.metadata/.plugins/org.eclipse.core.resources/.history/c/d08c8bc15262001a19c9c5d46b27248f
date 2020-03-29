@@ -1,0 +1,180 @@
+package application;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import javafx.animation.AnimationTimer;
+import javafx.application.Application;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+
+
+public class Ship_Alien extends Application
+{
+	private Pane root = new Pane();
+	
+	private object player = new object(300, 750, 40, 40, "player", Color.RED);
+	
+	private Parent createContent()
+	{
+		//set window size
+		root.setPrefSize(600, 800);
+		//shows the ship on the screen
+		root.getChildren().add(player);
+		
+		//creating a smoother movement
+		AnimationTimer timer = new AnimationTimer()
+		{
+			public void handle(long now)
+			{
+				update();
+			}
+		};
+		//main timer
+		timer.start();
+		
+		nextLevel();
+			
+		return root;
+	}
+	
+	//adding more aliens for next level?
+	 private void nextLevel()
+	 {
+	 	for (int i = 0; i < 5; i++)
+	 	{
+	 		object alien = new object(90 + i*100, 150, 30, 30, "enemy", Color.GREEN);
+	 
+	 		root.getChildren().add(alien);
+	 	}
+	 }
+	//going through each object 
+	private List<object> objects()
+	{
+		return root.getChildren().parallelStream().map(n -> (object)n).collect(Collectors.toList());
+	}
+	
+	private void update()
+	{
+		objects().forEach(o ->
+		{
+			//check for each type of object
+			switch (o.type)
+			{
+				//if the type is enemy bullet move down 
+				case "enemybullet":
+					//alien bullet move down 
+					o.moveDown();
+					
+					//check for collision - if enemy bullet is colliding with player 
+					if(o.getBoundsInParent().intersects(player.getBoundsInParent()))
+					{
+						//enemy dead
+						player.dead = true;
+						//bullet dead
+						o.dead = true;
+					}
+				break;
+				
+				case "playerbullet":
+					//player bullet moves up 
+					o.moveUp();
+					
+					//have to hit each alien
+					objects().stream().filter(e -> e.type.equals("enemy")).forEach(enemy ->
+					{
+						if (o.getBoundsInParent().intersects(enemy.getBoundsInParent()))
+						{
+							//enemy dead
+							enemy.dead = true;
+							//bullet dead
+							o.dead = true;
+						}
+					});
+					
+				break;
+				
+			}
+		});
+	}
+		
+	private void shoot(object who)
+	{
+		//who.type tells us who shot the bullet whether it was the enemy or the player 
+		object bullet = new object((int) who.getTranslateX() + 20, (int) who.getTranslateY(), 5, 20, who.type + "bullet", Color.GREY );
+		
+		root.getChildren().add(bullet);
+	}
+	
+	@Override
+	public void start(Stage primaryStage) throws Exception
+	{
+		Scene scene = new Scene(createContent());
+		
+		scene.setOnKeyPressed(e -> 
+		{
+			//code that connects to Sanjita's ship for the move. 
+			switch (e.getCode()) 
+			{
+			//connects with the arrow keys
+			case A:
+				//in the main call moveLeft() - same goes for the rest below
+				player.moveLeft();
+				break;
+			case D:
+				player.moveRight();
+				break;
+			case SPACE:
+				shoot(player);
+				break;
+			default:
+				break;
+			}
+		});
+		primaryStage.setScene(scene);
+		primaryStage.show();
+	}
+	
+	private static class object extends Rectangle
+	{
+		boolean dead = false; 
+		final String type;
+		
+		object (int x, int y, int h, int w, String type, Color color)
+		{
+			super(w, h, color);
+			
+			this.type = type;
+			setTranslateX(x);
+			setTranslateY(y);
+		}
+		
+		void moveLeft()
+		{
+			setTranslateX(getTranslateX() - 5);
+		}
+		void moveRight()
+		{
+			setTranslateX(getTranslateX() + 5);
+		}
+		void moveUp()
+		{
+			setTranslateY(getTranslateY() - 5);
+		}
+		void moveDown()
+		{
+			setTranslateY(getTranslateY() + 5);
+		}
+	}
+	
+	public static void main(String[] args)
+	{
+		launch(args);
+	}
+	
+	
+}

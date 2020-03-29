@@ -1,0 +1,77 @@
+package application;
+
+import javafx.application.Application;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Pane;
+/*import javafx.scene.Scene;
+
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;*/
+import javafx.stage.Stage;
+
+public class Ship extends Application
+{
+
+	private int xcoor = 0;
+	private int ycoor = 0;
+	private int velx  = 0;
+	private int vely  = 0;
+
+	@Override 
+	public void start(Stage primaryStage) throws Exception{
+
+	Pane pane = new Pane();
+	Image shipImage = new Image("XWing.png");
+	ImageView sImage = new ImageView(shipImage);
+	sImage.setFitWidth(120);
+	sImage.setFitHeight(80);
+	pane.getChildren().addAll(sImage);
+	Scene scene = new Scene(pane, 800, 500);
+
+
+	scene.setOnKeyPressed(new EventHandler<KeyEvent>()
+	{
+		@Override
+	    public void handle(KeyEvent event)
+		{
+
+	        //How to make the car move with arrow?
+
+	     }
+	});
+
+	primaryStage.setTitle("Ship"); 
+	primaryStage.setScene(scene); 
+	primaryStage.show(); 
+
+	}
+
+
+	public static void main(String[] args) 
+	{
+		launch(args);
+	}
+
+
+		
+}
+
+
+	/*@Override
+	public void start(Stage primaryStage) throws Exception 
+	{
+		StackPane root = new StackPane();
+		//root.getChildren().add();
+		Scene scene = new Scene(root, 600, 800);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+	}
+		
+		public static void main(String[] args)
+		{
+			launch(args);
+		}*/

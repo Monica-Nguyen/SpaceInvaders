@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ImportExportAction">
+		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.eclipse.ui.wizards.import.FileSystem"/>
+		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+		</list>
+	</section>
+	<section name="FileSystemImportWizard">
+		<item key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID" value="false"/>
+		<item key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID" value="false"/>
+		<list key="WizardFileSystemResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="C:\Users\Casey\Desktop\CC4 test"/>
+			<item value="C:\Users\Casey\Desktop\Assignment 8\TestCases"/>
+			<item value="C:\Users\Casey\Desktop\Assignment 8"/>
+			<item value="C:\Users\Casey\Desktop\CC4_Pr2"/>
+			<item value="C:\Users\Casey\Desktop\CC4_Pr1"/>
+			<item value="C:\Users\Casey\Desktop\TestCases"/>
+			<item value="C:\Users\Casey\Desktop"/>
+			<item value="C:\Users\Casey\Desktop\Assignment7Code"/>
+			<item value="C:\Users\Casey\Desktop\SpaceInvaders-SpaceInvadersDemo2\src"/>
+			<item value="C:\Users\Casey\Desktop\SpaceInvaders-SpaceInvadersDemo2\src\res"/>
+			<item value="C:\Users\Casey\Desktop\SpaceInvaders-SpaceInvadersDemo2\src\SpaceInvaders"/>
+			<item value="C:\Users\Casey\Desktop\SpaceInvaders-GUI\src"/>
+			<item value="C:\Users\Casey\Desktop\Assignment 6"/>
+			<item value="C:\Users\Casey\Desktop\CC3Practice2"/>
+			<item value="C:\Users\Casey\Desktop\CPSC 233 Assignment 5"/>
+			<item value="C:\Users\Casey\Desktop\Assignement 4"/>
+			<item value="C:\Users\Casey\Desktop\CC1Practice1And2"/>
+		</list>
+	</section>
+	<section name="WorkbenchPreferenceDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="245"/>
+		<item key="DIALOG_Y_ORIGIN" value="94"/>
+	</section>
+	<section name="NewWizardAction">
+		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.fx.ide.jdt.ui.javafx"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.fx.ide"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.internal.QuickAccess">
+		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_WIDTH" value="450"/>
+		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_HEIGHT" value="506"/>
+		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_USE_PERSISTED_SIZE" value="true"/>
+		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_USE_PERSISTED_LOCATION" value="false"/>
+		<list key="orderedElements">
+			<item value="org.eclipse.egit.ui.RepositoriesView"/>
+		</list>
+		<list key="orderedProviders">
+			<item value="org.eclipse.e4.ui.parts"/>
+		</list>
+		<list key="textEntries">
+			<item value="1"/>
+		</list>
+		<list key="textArray">
+			<item value="git"/>
+		</list>
+	</section>
+</section>
