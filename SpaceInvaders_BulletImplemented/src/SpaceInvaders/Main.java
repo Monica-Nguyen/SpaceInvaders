@@ -62,31 +62,44 @@ public class Main extends Application {
 
 		//Alien parameters : x,y,extend, health, alienImage, group
 		Alien A;
+		Bullet B;
 		ArrayList<Alien> AlienList = new ArrayList<>();
+		ArrayList<Bullet> BulletList = new ArrayList();
 
 		//the main loop that creates the aliens and adds them to an ArrayList
-		for(int x = 0; x<400; x += 100){
-			for(int y = 0; y<300; y +=100){
+		for(double x = 0; x<400; x += 100){
+			for(double y = 0; y<300; y +=100){
 				//creates a new alien spaced by the loop
 				A  = new Alien(x, y,50,1,alienImage,root);
 				AlienList.add(A);
-				
-				Bullet alienBullet = new Bullet(A.xPos, A.yPos, 50, alienBulletImage, root);
-				alienBullet.move("Down");
-		
-				
+
+
 			}
 		}
 
 		//creates a loop for the aliens that move on a timer
 		//the handler for the time loop
-		Timeline gameLoop = new Timeline(new KeyFrame(Duration.millis(20), t -> {
+		Timeline gameLoop = new Timeline(new KeyFrame(Duration.millis(16), t -> {
 		//Alien Movement
-				//loops through the alien list and moves all of them in the direction based off m
-			for(Alien x : AlienList) 
-				
+				//loops through the alien list and moves all of them in the direction based off
+
+			for(Alien x : AlienList) {
 				x.move(AlienMoveBy);
-			
+				//Tracks the aliens movement and shoots one bullet a frame
+
+				//TODO:
+					// make the bullets run on a timer
+						// use rand int or something
+					// make all of the aliens shoot
+				BulletList.add(new Bullet(x.imageView.getLayoutX(), x.imageView.getLayoutY(), 50, alienBulletImage, "Down", root));
+			}
+
+			for(Bullet y : BulletList){
+				y.move();
+
+			}
+
+
 			AlienCurrentPos+=AlienMoveBy;
 				
 				//increases the tracker for the groups x coordinate and checks to see if it hit the screen bound
@@ -94,8 +107,11 @@ public class Main extends Application {
 
 		//Ship Movement
 				//controls whether the ship moves left or right based on the variables left or right
-			if (right == true && Xship.xPos < 596) Xship.move("Right");
-			if (left == true && Xship.xPos > 0) Xship.move("Left");
+			if (right == true && Xship.imageView.getLayoutX() < 596) Xship.move("Right");
+			if (left == true && Xship.imageView.getLayoutX() > 0) Xship.move("Left");
+			if (space == true){
+				BulletList.add( new Bullet(Xship.xPos, Xship.yPos, 50, shipBulletImage, "Up", root));
+			}
 		}));
 
 
@@ -106,19 +122,16 @@ public class Main extends Application {
 		//handler for if a key is pressed starting a move command
 				//all movement is handled in the time loop
 		scene.setOnKeyPressed(event -> {
-			if (event.getCode() == KeyCode.RIGHT) right = true;
+			if (event.getCode() == KeyCode.RIGHT ) right = true;
 			if (event.getCode() == KeyCode.LEFT) left = true;
-			if (event.getCode() == KeyCode.SPACE)
-			{
-				//
-				Bullet shipBullet = new Bullet(Xship.xPos, Xship.yPos, 50, shipBulletImage, root);
-				shipBullet.move("Up");
-			}
+			if (event.getCode() == KeyCode.SPACE) space = true;
+
 		});
 		//handler for if the key is released breaking the move command
 		scene.setOnKeyReleased(event -> {
-			if (event.getCode() == KeyCode.RIGHT && Xship.xPos < 596) right  = false;
-			if (event.getCode() == KeyCode.LEFT && Xship.xPos > 0) left = false;
+			if (event.getCode() == KeyCode.RIGHT ) right  = false;
+			if (event.getCode() == KeyCode.LEFT ) left = false;
+			if (event.getCode() == KeyCode.SPACE) space = false;
 		});
 
 		stage.setScene(scene);

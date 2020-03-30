@@ -16,7 +16,7 @@ public class Alien extends MovableObject{
 	double yMoveSpeed = 0.1;
 
 	//CONSTRUCTOR
-	public Alien (int xPos, int yPos, int extend, int health, Image image, Group root) {
+	public Alien (double xPos, double yPos, int extend, int health, Image image, Group root) {
         super(xPos, yPos, extend, health);
         this.image = image;
         this.imageView = getImageView(xPos,yPos);

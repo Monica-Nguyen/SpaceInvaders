@@ -10,14 +10,17 @@ import javafx.util.Duration;
 public class Bullet extends MovableObject {
 	
 	private String type;
+
 	public Image image;
 	public ImageView imageView;
+	public String Direction;
 
 	
-	public Bullet (int xPos, int yPos, int extend, Image image, Group root) {
-        super(xPos, yPos, extend);
+	public Bullet (double xPos, double yPos, int extend, Image image, String Direction,Group root) {
+		super(xPos,yPos,extend);
         this.image = image;
         this.imageView = getImageView();
+        this.Direction = Direction;
         root.getChildren().addAll(imageView);
         //this.type = type;
 	}
@@ -30,23 +33,14 @@ public class Bullet extends MovableObject {
 	}
 
 	
-    public void move(String direction) {
-    	TranslateTransition transition = new TranslateTransition(); 
-		transition.setDuration(Duration.seconds(0.5));
-		//for ship shooting
-		if (direction == "Up") {
-			transition.setToY(-750);
-			transition.setCycleCount(1/30);
-			transition.setNode(imageView);
-			transition.play();
+    public void move() {
+		if (this.Direction == "Up") {
+			imageView.setLayoutY(imageView.getLayoutY()-5);
+
 		}
-		transition.setDuration(Duration.seconds(2));
-		//for aliens shooting
-		if (direction == "Down") {
-			transition.setToY(800);
-			transition.setCycleCount(Timeline.INDEFINITE);
-			transition.setNode(imageView);
-			transition.play();
+		if (this.Direction == "Down") {
+			imageView.setLayoutY(imageView.getLayoutY()+5);
+
 		}
 	}
 	
