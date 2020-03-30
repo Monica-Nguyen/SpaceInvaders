@@ -43,9 +43,9 @@ public class Main extends Application {
 	public Group root;
 
 	//launches the program
-	public static void main(String[] args) {
-        launch(args);
-	}
+	//public static void main(String[] args) {
+      //  launch(args);
+//	}
 
 	//the main function for the game
 	public void start(Stage stage) throws Exception {
