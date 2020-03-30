@@ -12,7 +12,7 @@ public class Ship extends MovableObject{
 	public ImageView imageView;
 
 	
-	public Ship (int xPos, int yPos, int extend, int health, Image image, Group root) {
+	public Ship (double xPos, double yPos, int extend, int health, Image image, Group root) {
         super(xPos, yPos, extend, health);
         this.image = image;
         this.imageView = getImageView();
@@ -31,18 +31,12 @@ public class Ship extends MovableObject{
 		TranslateTransition transition = new TranslateTransition(); 
 		transition.setDuration(Duration.seconds(0.0125));
 		if (direction == "Right") {
+			imageView.setLayoutX(imageView.getLayoutX()+4);
 			xPos += 4;
-			transition.setToX(xPos);
-			transition.setCycleCount(1/60);
-			transition.setNode(imageView);
-			transition.play();
 		}
 		if (direction == "Left") {
+			imageView.setLayoutX(imageView.getLayoutX()-4);
 			xPos -=4;
-			transition.setToX(xPos);
-			transition.setCycleCount(1/60);
-			transition.setNode(imageView);
-			transition.play();
 		}
 	}
 	

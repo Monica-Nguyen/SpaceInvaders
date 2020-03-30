@@ -4,24 +4,23 @@ import javafx.scene.Group;
 import javafx.scene.image.Image;
 
 public class MovableObject {
-    int xPos,yPos;      // the origin point of the object
+    double xPos,yPos;      // the origin point of the object
     int extend;         // the amount the sprite extends past the original cord
     int xSpeed, ySpeed; // the direction that the object is going in
-    int speed = 10;     // default speed
     int health;         // the health of the object
 	public Image image;
 	public Group root;
 
 
     // the default constructor for the class
-    public MovableObject(int xP, int yP, int e, int h ){
+    public MovableObject(double xP, double yP, int e, int h ){
         xPos = xP;
         yPos = yP;
         extend = e;
         health = h;
     }
-    //constructor for the bullet 
-    public MovableObject(int xP, int yP, int e)
+    //constructor for the bullet
+    public MovableObject(double xP, double yP, int e)
     {
         xPos = xP;
         yPos = yP;
