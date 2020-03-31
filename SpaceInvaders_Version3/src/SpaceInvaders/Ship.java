@@ -8,13 +8,14 @@ import javafx.util.Duration;
 
 
 public class Ship extends MovableObject{
-	public Image image;
+	
+	public final Image shipImage = new Image(getClass().getResourceAsStream("/res/ship.png"));
 	public ImageView imageView;
 
 	
 	public Ship (double xPos, double yPos, int extend, int health, Image image, Group root) {
         super(xPos, yPos, extend, health);
-        this.image = image;
+        this.image = shipImage;
         this.imageView = getImageView();
         root.getChildren().addAll(imageView);
 	}

@@ -1,30 +1,23 @@
 package SpaceInvaders;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
-import javafx.scene.layout.StackPane;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 
@@ -38,8 +31,8 @@ public class Menu extends Application  {
 	
 	
 	Button button;
-	private final static int Menu_Button_x = 100;
-	private final static int Menu_Button_y = 200;
+	private final static int Menu_Button_x = 220;
+	private final static int Menu_Button_y = 220;
 	
 	private ScoreLabel pointsLabel; //new for score
 	//private int playerLife; //should be in main? new for score
@@ -69,7 +62,7 @@ public class Menu extends Application  {
 	
 	private void addMenuButton(SpaceInvaderButton button) {
 		button.setLayoutX(Menu_Button_x);
-		button.setLayoutY(Menu_Button_y + menuButton.size() * 100);
+		button.setLayoutY(Menu_Button_y + menuButton.size() * 150);
 		menuButton.add(button);
 		mainPane.getChildren().add(button);
 	}
@@ -111,7 +104,7 @@ public class Menu extends Application  {
 	}
 	
 	private void ScoreElements() {
-		playerLife = 2;
+		//playerLife = 2;
 		pointsLabel = new ScoreLabel("SCORE : 00");
 		pointsLabel.setLayoutX(460);
 		pointsLabel.setLayoutY(20);

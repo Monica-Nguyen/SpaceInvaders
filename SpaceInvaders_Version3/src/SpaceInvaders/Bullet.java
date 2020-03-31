@@ -1,26 +1,21 @@
 package SpaceInvaders;
 
-import javafx.animation.Timeline;
-import javafx.animation.TranslateTransition;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.util.Duration;
 
 public class Bullet extends MovableObject {
 	
-	private String type;
-
 	public Image image;
 	public ImageView imageView;
-	public String Direction;
+	public String direction;
 
 	
-	public Bullet (double xPos, double yPos, int extend, Image image, String Direction,Group root) {
+	public Bullet (double xPos, double yPos, int extend, Image image, String direction,Group root) {
 		super(xPos,yPos,extend);
         this.image = image;
         this.imageView = getImageView();
-        this.Direction = Direction;
+        this.direction = direction;
         root.getChildren().addAll(imageView);
         //this.type = type;
 	}
@@ -34,11 +29,11 @@ public class Bullet extends MovableObject {
 
 	
     public void move() {
-		if (this.Direction == "Up") {
+		if (this.direction == "Up") {
 			imageView.setLayoutY(imageView.getLayoutY()-5);
 
 		}
-		if (this.Direction == "Down") {
+		if (this.direction == "Down") {
 			imageView.setLayoutY(imageView.getLayoutY()+5);
 
 		}
