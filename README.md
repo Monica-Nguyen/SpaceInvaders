@@ -13,7 +13,7 @@ https://www.youtube.com/watch?v=klob1me6O6Q
 You will need to install JavaFx. Follow the instructions below.
 
 ## How to execute the game on Eclipse
-• Download all the files from the master branch as a Zipped Download. Extract the src folders to your desktop for easy access. Open the Eclipse program. Install JavaFX following the instructions on this link: 
+• Download all the files from the master branch as a Zipped Download. Extract the src folder from the Space_Invaders3 to your desktop for easy access. Open the Eclipse program. Install JavaFX following the instructions on this link: 
 
 https://bittlife.com/install-javafx-eclipse/
 
