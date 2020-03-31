@@ -2,15 +2,13 @@ package SpaceInvaders;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.util.Duration;
-import javafx.animation.TranslateTransition;
 import javafx.scene.Group;
 
 
 
 public class Alien extends MovableObject{
 	
-	Image image;
+	public final Image alienImage = new Image(getClass().getResourceAsStream("/res/Alien3.png"));
 	ImageView imageView;
 	String dir = "right";
 	double yMoveSpeed = 0.1;
@@ -18,7 +16,7 @@ public class Alien extends MovableObject{
 	//CONSTRUCTOR
 	public Alien (double xPos, double yPos, int extend, int health, Image image, Group root) {
         super(xPos, yPos, extend, health);
-        this.image = image;
+        this.image = alienImage;
         this.imageView = getImageView(xPos,yPos);
         root.getChildren().addAll(imageView);
 	}
