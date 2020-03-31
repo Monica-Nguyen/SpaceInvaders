@@ -31,6 +31,6 @@ When you have successfully downloaded the game, there will be aliens scattered t
 
 ![Space Invaders - Animated gif demo](Demo3.gif)
 
-The game is still in progress. We still need to fix the bullets and add the colisions along with adding the scoring mechanism to the game.
+The game is still in progress. We still need to fix the bullets and add the colisions along with adding the scoring mechanism to the game. The bullets also need updating to shoot singular bullets at once. In addition, there should also be a collision between bullets from the aliens and the ship. 
 
 Hope you enjoy the game!
