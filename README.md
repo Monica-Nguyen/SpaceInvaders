@@ -28,7 +28,7 @@ move all files to your desktop for easy access. You may use another folder but y
 Download all the files from this Github as a Zipped Download. Extract the src and res folders to your desktop. Open a command prompt window and go to the directory where you saved the file. Ensure all the files are in the same directory. Assume it's C:. Type 'javac Main.java' to compile your code. You will have to compile each file from Github. If there are no errors in your code, the command prompt will take you to the next line (Assumption: The path variable is set). Now, type 'java Main' to run the game. You will be able to see the gamespace printed on the window.
  
 ### Final 
-![Farmers Market Finder - Animated gif demo](demo/Demo3.gif)
+![Farmers Market Finder - Animated gif demo](Demo3.gif)
 
 When you have successfully downloaded the game, there will be aliens scattered throughout the black screen with the ship at the bottom. 
 
