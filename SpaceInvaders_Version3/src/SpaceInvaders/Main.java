@@ -9,6 +9,7 @@ import javafx.util.Duration;
 import javafx.animation.Timeline;
 import javafx.animation.KeyFrame;
 import javafx.application.Application;
+import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -82,20 +83,31 @@ public class Main extends Application {
 					x.move("Left");
 				}
 
-
 				//randomly shoots an alien bullet
 				if(Math.random() <= 0.001){
 					BulletList.add(new Bullet(x.getX(), x.getY(), 1,"AlienBullet", root));
 				}
+
+
 			}
+
 			//increases the tracker for the groups x coordinate and checks to see if it hit the screen bound
 			AlienCurrentPos+=AlienMoveBy;
 			if(AlienCurrentPos >= 250 || AlienCurrentPos <= 0) AlienMoveBy = -AlienMoveBy;
 
-			for(Bullet y : BulletList){
-				y.move();
-			}
+			//moves the bullets and handles collision
+			for(Bullet B : BulletList){
+				B.move();
 
+				//loops through the aliens and checks for collision with a bullet
+				for(Alien  a: AlienList){
+					if(a.bulletCollisionCheck(B))System.out.println("a");
+				}
+				//checks for collision in the ship
+				if(Xship.bulletCollisionCheck(B)) Xship.takeDamage();
+
+			}
+			//increased the bullet timer to make sure that the ship doesn't shoot too fast
 			bulletTimer += 1;
 
 
