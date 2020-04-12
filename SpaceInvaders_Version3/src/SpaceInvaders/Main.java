@@ -93,7 +93,7 @@ public class Main extends Application {
 				if(Math.random() <= 0.001){
 					BulletList.add(new Bullet(x.getX(), x.getY(), 1,"AlienBullet", root));
 				}
-
+			}
 			
 			//TODO: Fix doneShipGame and invadedAliens in GameOver methods at bottom of file: So far, doneAlienGame works 
 			//Gate keeping method to verify if the game should still be running using methods
