@@ -14,6 +14,9 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import spaceInvadersLogic.movingObjs.Alien;
+import spaceInvadersLogic.movingObjs.Bullet;
+import spaceInvadersLogic.movingObjs.Ship;
 
 
 

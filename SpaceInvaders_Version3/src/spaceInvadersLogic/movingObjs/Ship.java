@@ -1,7 +1,6 @@
-package SpaceInvaders;
+package spaceInvadersLogic.movingObjs;
 
 import javafx.scene.Group;
-import spaceInvadersLogic.movingObjs.MovableObject;
 
 public class Ship extends MovableObject {
 

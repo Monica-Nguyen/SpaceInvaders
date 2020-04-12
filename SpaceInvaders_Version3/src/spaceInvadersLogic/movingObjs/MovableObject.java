@@ -1,6 +1,5 @@
 package spaceInvadersLogic.movingObjs;
 
-import SpaceInvaders.Bullet;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
