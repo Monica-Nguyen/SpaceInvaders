@@ -89,11 +89,11 @@ public class Main extends Application {
 			//drawAlienBullet();
 			//Aliens will randomly shoots an alien bullet
 			for(Alien x : AlienList) {
+				//randomly shoots an alien bullet
 				if(Math.random() <= 0.001){
 					BulletList.add(new Bullet(x.getX(), x.getY(), 1,"AlienBullet", root));
 				}
-			}
-			
+
 			
 			//TODO: Fix doneShipGame and invadedAliens in GameOver methods at bottom of file: So far, doneAlienGame works 
 			//Gate keeping method to verify if the game should still be running using methods
@@ -114,8 +114,8 @@ public class Main extends Application {
 			updateBullets();
 			//shipCollision();
 			//updateShipGame();
-
 			
+        
 		//Ship Movement
 				//controls whether the ship moves left or right based on the variables left or right
 			if (right == true && Xship.getX() < 550) Xship.move("Right");

@@ -5,6 +5,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public abstract class MovableObject {
+
     protected double xPos,yPos;   // the origin point of the object
     public int extend;
     private int health;         // the health of the object
@@ -38,6 +39,7 @@ public abstract class MovableObject {
 
     //Makes a node with the appropriate object images 
     //For more information, visit: https://docs.oracle.com/javase/8/docs/api/javax/swing/text/html/ImageView.html
+    //creates the image view
     public ImageView getImageView() {
         ImageView i = new ImageView(image);
         i.setX(xPos);
@@ -54,8 +56,7 @@ public abstract class MovableObject {
 	public boolean onScreen() {
 		return imageView.isVisible();
 	}
-    
-	
+
     //checks the collision between an object and a bullet
     public boolean bulletCollisionCheck(Bullet bullet){
 
@@ -68,7 +69,6 @@ public abstract class MovableObject {
 
         }else return false;
     }
-
 
     //checks the bounds of two points
     public boolean checkBounds(double p1, double p2, int e1, int e2){
@@ -84,14 +84,12 @@ public abstract class MovableObject {
     	this.health -= 1;
     }
 
-
     //Getters
     public double getX(){return xPos + 0;}
     public double getY(){return yPos + 0;}
     public int getExtend(){return extend + 0;}
     public String getType(){return String.valueOf(type);}
     public int getHealth() {return this.health;}
-    
     
     
     //this function moves the object
