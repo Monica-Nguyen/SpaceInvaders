@@ -47,29 +47,6 @@ public abstract class MovableObject {
         return i;
     }
 
-    //changes the visibility of object to false if collision occurs 
-	public void remove () {
-		imageView.setVisible(false);
-	}
-	
-	//returns a boolean on whether the object is supposed to be visible (true) or not (false)
-	public boolean onScreen() {
-		return imageView.isVisible();
-	}
-
-    //checks the collision between an object and a bullet
-    public boolean bulletCollisionCheck(Bullet bullet){
-
-        //checks to see if the bullet type aligns with the object type
-        if((this.type == "Alien" && bullet.getType() == "ShipBullet")||(this.type == "Ship" && bullet.getType() == "AlienBullet") ) {
-
-            //Checks to see if the x & y bound line up
-            if (checkBounds(this.getX(), bullet.getX(), this.getExtend(), bullet.getExtend()) && checkBounds(this.getY(), bullet.getY(), this.getExtend(), bullet.getExtend()) )return true;
-            else return false;
-
-        }else return false;
-    }
-
     //checks the bounds of two points
     public boolean checkBounds(double p1, double p2, int e1, int e2){
         //checks to see if p2 is between p1 and p1+extend
@@ -84,33 +61,38 @@ public abstract class MovableObject {
     	this.health -= 1;
     }
 
+    //changes the visibility of object to false if collision occurs
+    public void remove() {
+        imageView.setVisible(false);
+    }
+
+    //returns a boolean on whether the object is supposed to be visible (true) or not (false)
+    public boolean onScreen() {
+        return imageView.isVisible();
+    }
+
     //Getters
     public double getX(){return xPos + 0;}
     public double getY(){return yPos + 0;}
     public int getExtend(){return extend + 0;}
     public String getType(){return String.valueOf(type);}
     public int getHealth() {return this.health;}
-    
-    
-    //this function moves the object
-    public void move(String s) {
-        if (s == "Right") {
-            imageView.setLayoutX(imageView.getLayoutX()+2);
-            xPos += 2;
-        }
-        if (s == "Left") {
-            imageView.setLayoutX(imageView.getLayoutX()-2);
-            xPos -=2;
-        }
-        if (s == "Up") {
-            imageView.setLayoutY(imageView.getLayoutY()-2);
-            yPos -=2;
-        }
-        if (s == "Down") {
-            imageView.setLayoutY(imageView.getLayoutY()+2);
-            yPos +=2;
-        }
+
+    //checks the collision between an object and a bullet
+    public boolean bulletCollisionCheck(Bullet bullet){
+
+        //checks to see if the bullet type aligns with the object type
+        if((this.type == "Alien" && bullet.getType() == "ShipBullet")||(this.type == "Ship" && bullet.getType() == "AlienBullet") ) {
+
+            //Checks to see if the x & y bound line up
+            if (checkBounds(this.getX(), bullet.getX(), this.getExtend(), bullet.getExtend()) && checkBounds(this.getY(), bullet.getY(), this.getExtend(), bullet.getExtend()) )return true;
+            else return false;
+
+        }else return false;
     }
+
+    //this function moves the object
+    public abstract void move(String s);
 }
 
 

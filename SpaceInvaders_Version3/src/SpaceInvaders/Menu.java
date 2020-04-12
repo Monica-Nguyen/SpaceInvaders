@@ -35,8 +35,7 @@ public class Menu extends Application  {
 	private final static int Menu_Button_y = 220;
 	
 	private ScoreLabel pointsLabel; //new for score
-	//private int playerLife; //should be in main? new for score
-	//private int points;//main? new for score
+
 	
 	
 	List<SpaceInvaderButton>menuButton;
