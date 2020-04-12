@@ -1,10 +1,11 @@
-package SpaceInvaders.movingObjs;
+package spaceInvadersLogic.movingObjs;
 
+import SpaceInvaders.Bullet;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class MovableObject {
+public abstract class MovableObject {
     protected double xPos,yPos;   // the origin point of the object
     public int extend;
     private int health;         // the health of the object
@@ -20,6 +21,13 @@ public class MovableObject {
     public final Image shipBulletImage = new Image(getClass().getResourceAsStream("/res/ShipBullet.png"));
     public final Image alienBulletImage = new Image(getClass().getResourceAsStream("/res/AlienBullet.png"));
 
+    //constructor 
+    public MovableObject(double xP, double yP, int h) {
+    	 xPos = xP;
+         yPos = yP;
+         health = h;
+    }
+    
     // the default constructor for the class
     public MovableObject(double xP, double yP, int h ,String type, Group root){
         xPos = xP;
@@ -36,7 +44,9 @@ public class MovableObject {
         root.getChildren().addAll(imageView);
     }
 
-    //creates the image view
+    
+    //Makes a node with the appropriate object images 
+    //For more information, visit: https://docs.oracle.com/javase/8/docs/api/javax/swing/text/html/ImageView.html
     public ImageView getImageView() {
         ImageView i = new ImageView(image);
         i.setX(xPos);
@@ -44,6 +54,17 @@ public class MovableObject {
         return i;
     }
 
+    //changes the visibility of object to false if collision occurs 
+	public void remove () {
+		imageView.setVisible(false);
+	}
+	
+	//returns a boolean on whether the object is supposed to be visible (true) or not (false)
+	public boolean onScreen() {
+		return imageView.isVisible();
+	}
+    
+	
     //checks the collision between an object and a bullet
     public boolean bulletCollisionCheck(Bullet bullet){
 
@@ -69,7 +90,7 @@ public class MovableObject {
 
     //makes the object take damage
     public void takeDamage(){
-
+    	this.health -= 1;
     }
 
 
@@ -78,8 +99,10 @@ public class MovableObject {
     public double getY(){return yPos + 0;}
     public int getExtend(){return extend + 0;}
     public String getType(){return String.valueOf(type);}
+    public int getHealth() {return this.health;}
     
-
+    
+    
     //this function moves the object
     public void move(String s) {
         if (s == "Right") {

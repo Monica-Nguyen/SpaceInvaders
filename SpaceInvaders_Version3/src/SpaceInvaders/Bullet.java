@@ -1,6 +1,7 @@
-package SpaceInvaders.movingObjs;
+package SpaceInvaders;
 
 import javafx.scene.Group;
+import spaceInvadersLogic.movingObjs.MovableObject;
 
 public class Bullet extends MovableObject {
 	public String direction;
