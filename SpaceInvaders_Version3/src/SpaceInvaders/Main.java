@@ -23,9 +23,13 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
     //values for tracking the group alien movement
-    private int AlienCurrentPos = 0;
-    private int AlienMoveBy = 2;
+    private double AlienCurrentPos = 0;
+    private double AlienMoveBy = 2;
+
+    //Score and game vars
+    private int level = 1;
     private int Score = 0;
+    private double difficulty = 0;
 
     //vars for tracking the movement/shots of the ship
     private boolean right = false;
@@ -36,8 +40,8 @@ public class Main extends Application {
     private int bulletTimer = 60;
 
     //constants for the window size
-    final double WIDTH = 600;
-    final double HEIGHT = 800;
+    private final double WIDTH = 600;
+    private final double HEIGHT = 800;
 
 
 
@@ -52,7 +56,6 @@ public class Main extends Application {
     Alien A;
     ArrayList<Alien> AlienList = new ArrayList<>();
     ArrayList<Bullet> BulletList = new ArrayList<>();
-    Bullet temp;
 
     //the main function for the game
     public void start(Stage stage) throws Exception {
@@ -63,7 +66,7 @@ public class Main extends Application {
         Group root = new Group();
         Scene scene = new Scene(root, WIDTH, HEIGHT, Color.BLACK);
         //Creating Ship with parameters  : x,y,extend, health, shipImage, group
-        Ship Xship = new Ship(250,700,3,"Ship",root);
+        Xship = new Ship(250,700,3,"Ship",root);
 
         //Adds the Aliens to a list to handle collectively
         //the main loop that creates the aliens and adds them to an ArrayList
@@ -86,7 +89,6 @@ public class Main extends Application {
             updateAliens();
             updateBullets();
 
-
             //Ship Movement/Firing
             //controls whether the ship moves left or right based on the variables left or right
             //shoots once every second if the space bar is being held down
@@ -99,9 +101,19 @@ public class Main extends Application {
                 }
             }
 
+
+            //if the player cleared the round the difficulty increaces and the level count is increaced.
+            if (alienListEmpty()){
+                difficulty += 0.1;
+                level += 1;
+                AlienMoveBy += difficulty;
+                AlienCurrentPos = 0;
+                AlienList = new ArrayList<>(addAliens(root));
+            }
+
 //          Gate keeping method to verify if the game should still be running using methods
 //          If either methods returns true then the game will be cleared and an end screen will be initiated
-            if (doneAlienGame() || (doneShipGame(Xship) || invadedAliens(AlienList))){
+            if (doneShipGame(Xship) || invadedAliens(AlienList)){
                 root.getChildren().clear();
                 Text text = new Text("Game Over \n\n" + "Your Score is " + Score);
                 text.setTextAlignment(TextAlignment.CENTER);
@@ -137,15 +149,15 @@ public class Main extends Application {
         stage.show();
     }
 
-    //********** METHODS THAT CAN'T BE CALLED IN THE MAIN PROGRAM**********
+    //********CREATORS: used for creating aliens and bullets
     //Adds the Aliens to a list to handle collectively
     public ArrayList<Alien> addAliens(Group root) {
         ArrayList<Alien> a = new ArrayList<Alien>();
         //the main loop that creates the aliens and adds them to an ArrayList
-        for(double x = 0; x<400; x += 100){
-            for(double y = 0; y<300; y +=100){
+        for(double x = 1; x<400; x += 100){
+            for(double y = 50; y<350; y +=100){
                 //creates a new alien spaced by the loop
-                A  = new Alien(x, y,1,"Alien",root);
+                A  = new Alien(x, y,1,"Alien",difficulty,root);
                 a.add(A);
             }
         }
@@ -161,8 +173,7 @@ public class Main extends Application {
         }
     }
 
-    //******************************************************************************************
-
+    //********ALIEN MOVEMENT
     //Alien Movement throughout the game
     //loops through the alien list and moves all of them in the direction based off
     public void alienMove() {
@@ -173,6 +184,7 @@ public class Main extends Application {
             }
             else if(AlienCurrentPos > 0 && AlienMoveBy < 0) {
                 x.move("Left");
+                x.move("Down");
             }
         }
     }
@@ -182,7 +194,6 @@ public class Main extends Application {
         //increases the tracker for the groups x coordinate and checks to see if it hit the screen bound
         AlienCurrentPos+=AlienMoveBy;
         if(AlienCurrentPos >= 250 || AlienCurrentPos <= 0) AlienMoveBy = -AlienMoveBy;
-        bulletTimer += 1;
     }
 
 
@@ -227,6 +238,7 @@ public class Main extends Application {
 
     //updates bullets after possible collisions
     public void updateBullets() {
+        bulletTimer += 1;
         for (int i = 0; i < BulletList.size(); i++) {
             Bullet b = BulletList.get(i);
             if (!b.onScreen())
@@ -237,18 +249,18 @@ public class Main extends Application {
     }
 
 
-    // *********GAME OVER METHODS: If they return true, then game will be ended
+    // *********GAME OVER/RESET METHODS: If they return true, then game will be ended
+    //Checks to see if there are Aliens left
+    public Boolean alienListEmpty() {
+        if (AlienList.isEmpty())
+            return true;
+        return false;
+    }
+
     //updates ship after possible collision
     public Boolean doneShipGame(Ship x) {
         if (x.getHealth() < 1) return true;
         else return false;
-    }
-
-    //Checks to see if there are Aliens left
-    public Boolean doneAlienGame() {
-        if (AlienList.isEmpty())
-            return true;
-        return false;
     }
 
     //Checks to see if the aliens have reached the bottom of the screen
