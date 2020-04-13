@@ -1,6 +1,7 @@
 package SpaceInvaders;
 import java.util.ArrayList;
 
+import SpaceInvaders.GUI.ScoreLabel;
 import SpaceInvaders.movingObjs.Alien;
 import SpaceInvaders.movingObjs.Bullet;
 import SpaceInvaders.movingObjs.Ship;
@@ -19,11 +20,7 @@ import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 
@@ -33,9 +30,7 @@ public class Main extends Application {
     private double AlienCurrentPos = 0;
     private double AlienMoveBy = 2;
 
-    //Score and game vars
-    private int level = 0;
-   // private int Score = 0;
+    // private int Score = 0;
     private double difficulty = 0;
 
     //vars for tracking the movement/shots of the ship
@@ -50,21 +45,18 @@ public class Main extends Application {
     private final double WIDTH = 600;
     private final double HEIGHT = 800;
     
-  //new for score label 
-    private ScoreLabel scoreLabel; 
+    //view for score label
+    private ScoreLabel scoreLabel;
 	private ImageView[] playerLifes;
 	private int playerLife;
 	private int score;
 
     //the group that holds all the instances
-    public Image image;
     public Group root;
 
     
-    //Ship object
+    //initializing the game objects
     Ship Xship;
-
-    //Creating Alien objects with parameters : x,y,extend, health, alienImage, group
     Alien A;
     ArrayList<Alien> AlienList = new ArrayList<>();
     ArrayList<Bullet> BulletList = new ArrayList<>();
@@ -89,13 +81,12 @@ public class Main extends Application {
         //For more information: https://docs.oracle.com/javase/8/javafx/api/javafx/animation/Timeline.html
         Timeline gameLoop = new Timeline(new KeyFrame(Duration.millis(16), t -> {
 
-            //if there are no aliens on the board then .
+            //if there are no aliens on the board then the game variables are increased.
             if (alienListEmpty()){
-                AlienMoveBy = 2+difficulty;
                 AlienCurrentPos = 1;
                 AlienList = new ArrayList<>(addAliens(root));
+                AlienMoveBy = 2+difficulty;
                 difficulty += 0.1;
-                level += 1;
             }
 
             //Initiating Alien Movement and loop during game
@@ -113,7 +104,7 @@ public class Main extends Application {
 
             //Ship Movement/Firing
             //controls whether the ship moves left or right based on the variables left or right
-            //shoots once every second if the space bar is being held down
+            //shoots once every 0.6s if the space bar is being held down
             if (right == true && Xship.getX() < 550) Xship.move("Right");
             if (left == true && Xship.getX() > 0) Xship.move("Left");
             if (space == true){
@@ -129,27 +120,26 @@ public class Main extends Application {
 //          Gate keeping method to verify if the game should still be running using methods
 //          If either methods returns true then the game will be cleared and an end screen will be initiated
             if ((doneShipGame(Xship) || invadedAliens(AlienList))){
+                //clears the root and initializes the vars for the background image
                 root.getChildren().clear();
                 BorderPane pane = new BorderPane();
                 Image backgroundImage = new Image("res/blue.png", 256,256, false, true);
                 BackgroundImage background = new BackgroundImage(backgroundImage, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, null );
         		pane.setBackground(new Background(background));
                 
-        		//indicate game over
+        		//indicate game over and displays the background
         		ImageView gameOver = new ImageView("res/GameOver.png");
         		gameOver.setLayoutX(130);
         		gameOver.setLayoutY(200);
         		pane.getChildren().add(gameOver);
         		
-        	    // Shows the score at the end of the game  		
+        	    // Shows the score at the end of the game over the background image
         		scoreLabel.setLayoutX(220);
         		scoreLabel.setLayoutY(450);
         		pane.getChildren().add(scoreLabel);
-            
-                stage.getScene().setRoot(pane);
-                
-                stage.show();
 
+        		//sets the new root
+                stage.getScene().setRoot(pane);
             }
         }));        	
 
@@ -194,6 +184,7 @@ public class Main extends Application {
         return a;
     }
 
+    //Creates an alien bullet
     public void drawAlienBullet(Group r) {
         //randomly shoots an alien bullet
         for(Alien x : AlienList) {
@@ -232,6 +223,7 @@ public class Main extends Application {
     public void alienCollision() {
         for(Bullet B : BulletList){
             B.move("");
+            //if a bullet hits an alien then it will cause it to become not visible and later deleted by an update function
             for(Alien  a: AlienList){
                 if (a.bulletCollisionCheck(B)) {
                     a.remove();
@@ -244,6 +236,7 @@ public class Main extends Application {
     //checks collision with Ship with Alien Bullet
     public void shipCollision(Ship Xship) {
         for(Bullet B : BulletList){
+            //if an alien bullet collides with the ship then it takes damage
             if(Xship.bulletCollisionCheck(B)){
                 B.remove();
                 Xship.takeDamage();
@@ -260,14 +253,14 @@ public class Main extends Application {
     	for (int i = 0; i < AlienList.size(); i++) {
             Alien a = AlienList.get(i);
             if (!a.onScreen())
-            {
+            {   //Score tracking
             	score+=10;
                 String textToSet = "Score : ";
                 if (score < 10) {
                 	textToSet = textToSet + "0";
                 }
                 scoreLabel.setText(textToSet + score);
-             
+                //removes alien from the list
                 AlienList.remove(i);
             }
         }
@@ -277,6 +270,7 @@ public class Main extends Application {
     public void updateBullets() {
         bulletTimer += 1;
         for (int i = 0; i < BulletList.size(); i++) {
+            //if the bullet isn't being displayed then it is removed
             Bullet b = BulletList.get(i);
             if (!b.onScreen())
             {
@@ -313,7 +307,6 @@ public class Main extends Application {
 	//creates the score label at the top right corner of the screen
     //gives the player life equal to 3
     private void ScoreElements() {
-	
     	playerLife = 2;
     	scoreLabel = new ScoreLabel("SCORE : 00");
 		scoreLabel.setLayoutX(460);

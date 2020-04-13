@@ -1,9 +1,10 @@
-package SpaceInvaders;
+package SpaceInvaders.GUI;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
+import SpaceInvaders.Main;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -29,8 +30,7 @@ public class Menu extends Application  {
 	private Scene mainScene;
 	private Stage mainStage;
 	
-	
-	Button button;
+
 	private final static int Menu_Button_x = 220;
 	private final static int Menu_Button_y = 220;
 	

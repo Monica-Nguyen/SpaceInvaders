@@ -1,4 +1,4 @@
-package SpaceInvaders;
+package SpaceInvaders.GUI;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
