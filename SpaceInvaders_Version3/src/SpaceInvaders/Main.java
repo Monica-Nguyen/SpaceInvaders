@@ -27,7 +27,7 @@ public class Main extends Application {
     private double AlienMoveBy = 2;
 
     //Score and game vars
-    private int level = 1;
+    private int level = 0;
     private int Score = 0;
     private double difficulty = 0;
 
@@ -70,11 +70,19 @@ public class Main extends Application {
 
         //Adds the Aliens to a list to handle collectively
         //the main loop that creates the aliens and adds them to an ArrayList
-        AlienList = addAliens(root);
 
         //Timeline creates a animation loop with timer for all game movement
         //For more information: https://docs.oracle.com/javase/8/javafx/api/javafx/animation/Timeline.html
         Timeline gameLoop = new Timeline(new KeyFrame(Duration.millis(16), t -> {
+
+            //if there are no aliens on the board then .
+            if (alienListEmpty()){
+                AlienMoveBy = 2+difficulty;
+                AlienCurrentPos = 1;
+                AlienList = new ArrayList<>(addAliens(root));
+                difficulty += 0.1;
+                level += 1;
+            }
 
             //Initiating Alien Movement and loop during game
             alienMove();
@@ -102,14 +110,7 @@ public class Main extends Application {
             }
 
 
-            //if the player cleared the round the difficulty increases and the level count is increased.
-            if (alienListEmpty()){
-                difficulty += 0.1;
-                level += 1;
-                AlienMoveBy += difficulty;
-                AlienCurrentPos = 0;
-                AlienList = new ArrayList<>(addAliens(root));
-            }
+
 
 //          Gate keeping method to verify if the game should still be running using methods
 //          If either methods returns true then the game will be cleared and an end screen will be initiated
