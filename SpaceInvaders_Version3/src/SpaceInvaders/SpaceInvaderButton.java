@@ -17,7 +17,7 @@ public class SpaceInvaderButton extends Button  {
 	
 	private final String Font_Path ="src/res/Luna.ttf";
 	private final String Button_Pressed = "-fx-background-color: transparent; -fx-background-image: url('/res/blue_panel.png');";
-	private final String Button_Style = "-fx-background-image: url('/res/blue_button04.png'); -fx-background-size: cover";
+	private final String Button_Style = "res/blue_button04.png";
 	
 	
 	public SpaceInvaderButton(String text) {
