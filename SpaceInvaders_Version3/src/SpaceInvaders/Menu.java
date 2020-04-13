@@ -34,7 +34,6 @@ public class Menu extends Application  {
 	private final static int Menu_Button_x = 220;
 	private final static int Menu_Button_y = 220;
 	
-	private ScoreLabel pointsLabel; //new for score
 
 	
 	
@@ -71,14 +70,14 @@ public class Menu extends Application  {
 //	}
 	private void createButton () {
 		createStartButton();
-	//	createScoretButton(); score is not working for now 
+		
 		createExitButton();
-		ScoreElements();
+	
 		
 	}
 	
 	
-	
+	// creates the start button at the beginning of the game
 	private void createStartButton() {
 		SpaceInvaderButton startButton = new SpaceInvaderButton("Start");
 		addMenuButton(startButton);
@@ -92,7 +91,7 @@ public class Menu extends Application  {
 					try {
 						gameManager.start(mainStage);
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}		
 				}		
@@ -102,19 +101,8 @@ public class Menu extends Application  {
 	
 	}
 	
-	private void ScoreElements() {
-		//playerLife = 2;
-		pointsLabel = new ScoreLabel("SCORE : 00");
-		pointsLabel.setLayoutX(460);
-		pointsLabel.setLayoutY(20);
-		mainPane.getChildren().add(pointsLabel);
-		
-	}
 	
-	private void createScoretButton() {
-		SpaceInvaderButton scoreButton = new SpaceInvaderButton("Score");
-		addMenuButton(scoreButton);
-	}
+	// creates the exit button at the beginning of the game
 	private void createExitButton() {
 		SpaceInvaderButton exitButton = new SpaceInvaderButton("Exit");
 		addMenuButton(exitButton);
@@ -129,13 +117,13 @@ public class Menu extends Application  {
 			
 		});
 	}
-	
+	// to choose the background color for menu 
 	private void createBackground() {
 		Image backgroundImage = new Image("res/black.png", 256,256, false, true);
 		BackgroundImage background = new BackgroundImage(backgroundImage, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, null );
 		mainPane.setBackground(new Background(background));
 	}
-	
+	// creates the logo image at the beginning of the game
 	private void createLogo() {
 		ImageView logo = new ImageView("res/Space_invaders_logo.png");
 		logo.setLayoutX(200);
@@ -160,6 +148,7 @@ public class Menu extends Application  {
 		});
 		mainPane.getChildren().add(logo);
 	}
+	
 	
 	public void start (Stage primaryStage) throws Exception {
 		try {

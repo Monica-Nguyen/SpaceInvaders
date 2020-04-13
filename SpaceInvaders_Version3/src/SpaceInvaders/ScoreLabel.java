@@ -32,7 +32,7 @@ public class ScoreLabel extends Label {
 		setText(text);
 		
 	}
-	
+	//Method to set the font for the score 
 	private void ScoreLabelFont() {
 		try {
 			setFont(Font.loadFont(new FileInputStream(new File(Font_Path)), 15));
@@ -41,6 +41,6 @@ public class ScoreLabel extends Label {
 		}
 		
 	}
-	
+
 
 }
