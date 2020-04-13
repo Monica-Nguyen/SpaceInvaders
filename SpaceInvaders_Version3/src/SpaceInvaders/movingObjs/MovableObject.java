@@ -21,7 +21,15 @@ public abstract class MovableObject {
     public final Image shipBulletImage = new Image(getClass().getResourceAsStream("/res/ShipBullet.png"));
     public final Image alienBulletImage = new Image(getClass().getResourceAsStream("/res/AlienBullet.png"));
 
-    // the default constructor for the class
+    
+    // constructor for text-based
+    public MovableObject(double xP, double yP, int h){
+        xPos = xP;
+        yPos = yP;
+        health = h;
+    }
+        
+    // the default constructor for the GUI class
     public MovableObject(double xP, double yP, int h ,String type, Group root){
         xPos = xP;
         yPos = yP;
@@ -91,8 +99,6 @@ public abstract class MovableObject {
         }else return false;
     }
 
-    //this function moves the object
-    public abstract void move(String s);
 }
 
 

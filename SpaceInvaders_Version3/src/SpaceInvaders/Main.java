@@ -102,7 +102,7 @@ public class Main extends Application {
             }
 
 
-            //if the player cleared the round the difficulty increaces and the level count is increaced.
+            //if the player cleared the round the difficulty increases and the level count is increased.
             if (alienListEmpty()){
                 difficulty += 0.1;
                 level += 1;
