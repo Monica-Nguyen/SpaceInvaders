@@ -36,13 +36,16 @@ public abstract class MovableObject {
         yPos = yP;
         extend = 50;
         health = h;
+
         //Based on the type of the object there is a different image
         this.type = type;
         if (type == "Ship") image = shipImage;
         else if(type == "Alien") image = alienImage;
         else if(type == "ShipBullet") image = shipBulletImage;
         else if(type == "AlienBullet") image = alienBulletImage;
+        //sets the imageview
         this.imageView = getImageView();
+        //adds the imageview to the root
         root.getChildren().addAll(imageView);
     }
 
