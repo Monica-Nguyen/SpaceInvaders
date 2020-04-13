@@ -1,4 +1,4 @@
-package textBased;
+package SpaceInvaders.textBased;
 
 
 import java.util.ArrayList;

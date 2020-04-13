@@ -1,4 +1,4 @@
-package textBased;
+package SpaceInvaders.textBased;
 import SpaceInvaders.movingObjs.*;
 
 abstract class gameObjects extends MovableObject {
