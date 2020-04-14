@@ -12,26 +12,25 @@ import javafx.scene.text.Font;
 
 public class SpaceInvaderButton extends Button  {
 	
+	//private final static int Menu_Button_x = 100;
+//	private final static int Menu_Button_y = 200;
 	
-	
-	//constant for setting the path of the font, when the button gets pressed, and the button style
 	private final String Font_Path ="src/res/Luna.ttf";
 	private final String Button_Pressed = "-fx-background-color: transparent; -fx-background-image: url('/res/blue_panel.png');";
-	private final String Button_Style = "res/blue_button04.png";
+	private final String Button_Style = "-fx-background-image: url('/res/blue_button04.png'); -fx-background-size: cover";
 	
-	//creating a constructor for the text and calling the other buttons
+	
 	public SpaceInvaderButton(String text) {
 		setText(text);
 		setButtonFont();
-		//set the preference width and height layout for the button
 		setPrefWidth(190);
 		setPrefHeight(29);
 		setStyle(Button_Style);
 		initializeButton();
 	}
-	//To set the font for the button
+	
 	private void setButtonFont() {
-		//font becomes arial if the program font doesn't run
+		
 		try {
 			setFont(Font.loadFont(new FileInputStream(Font_Path), 30));
 		} catch (FileNotFoundException e){ {
@@ -40,23 +39,21 @@ public class SpaceInvaderButton extends Button  {
 		}
 	}
 	
-	//to set the effect when the button is pressed
+
 	private void setButtonPressed() {
 		setStyle(Button_Pressed);
-		//to create the widith and hight when pressing 
 		setPrefHeight(45);
 		setLayoutY(getLayoutY() + 4);
 	}
-	 //to set the effect when the button is released
+	 
 	private void setButtonReleased() {
 		setStyle(Button_Style);
-		//to create the widith and hight when pressing 
 		setPrefHeight(45);
 		setLayoutY(getLayoutY() - 4);
 		
 	}
 	
-//create the listeners when the mouse is pressed, released and exited
+
 	private void initializeButton()  {
 		
 		setOnMousePressed(new EventHandler<MouseEvent>() {

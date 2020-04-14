@@ -55,9 +55,7 @@ public class Menu extends Application  {
 		createLogo();
 		
 	}
-		
-		
-	
+
 	public Stage getMainStage() {
 		return mainStage;
 	}
@@ -78,7 +76,6 @@ public class Menu extends Application  {
 	private void createButton () {
 		createStartButton();
 		createExitButton();
-		
 		
 	}
 	
@@ -109,9 +106,8 @@ public class Menu extends Application  {
 	
 	}
 	
-	// to exit the game at the begining without clicking start 
+	// to exit the game at the beginning without clicking start 
 	//https://docs.oracle.com/javase/8/javafx/api/javafx/event/ActionEvent.html
-	
 	
 	private void createExitButton() {
 		SpaceInvaderButton exitButton = new SpaceInvaderButton("Exit");
@@ -136,7 +132,7 @@ public class Menu extends Application  {
 		mainPane.setBackground(new Background(background));
 	}
 	//creating Logo for the main game 
-	//using mouseevent to show effects 
+	//using mouse event to show effects 
 	//https://docs.oracle.com/javase/8/javafx/api/javafx/scene/input/MouseEvent.html
 	private void createLogo() {
 		ImageView logo = new ImageView("res/Space_invaders_logo.png");
@@ -156,9 +152,7 @@ public class Menu extends Application  {
 			@Override
 			public void handle(MouseEvent event) {
 				logo.setEffect(null);
-				
 			}
-			
 		});
 		mainPane.getChildren().add(logo);
 	}
@@ -173,10 +167,5 @@ public class Menu extends Application  {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		
 	}
-
-
-
-
-	}
+}
