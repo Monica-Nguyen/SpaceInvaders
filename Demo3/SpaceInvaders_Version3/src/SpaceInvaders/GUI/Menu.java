@@ -4,12 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import SpaceInvaders.Main;
+import SpaceInvaders.Logic.Main;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
