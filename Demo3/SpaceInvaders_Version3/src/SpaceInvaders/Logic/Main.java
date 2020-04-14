@@ -1,4 +1,4 @@
-package SpaceInvaders;
+package SpaceInvaders.Logic;
 import java.util.ArrayList;
 
 import SpaceInvaders.GUI.ScoreLabel;
@@ -73,9 +73,6 @@ public class Main extends Application {
         
         //Creating Ship with parameters  : x,y,extend, health, shipImage, group
         Xship = new Ship(250,700,3,"Ship",root);
-
-        //Adds the Aliens to a list to handle collectively
-        //the main loop that creates the aliens and adds them to an ArrayList
 
         //Timeline creates a animation loop with timer for all game movement
         //For more information: https://docs.oracle.com/javase/8/javafx/api/javafx/animation/Timeline.html
