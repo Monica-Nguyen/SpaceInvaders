@@ -13,7 +13,7 @@ https://www.youtube.com/watch?v=klob1me6O6Q
 You will need to install JavaFx. Follow the instructions below.
 
 ## How to execute the game on Eclipse
-• Download all the files from the master branch as a Zipped Download. Extract the SpaceInvaders folder. You will want to enter the src folder then the SpaceInvaders folder. Open the Eclipse program. Install JavaFX following the instructions on this link: 
+• Download all the files from the master branch as a Zipped Download. Extract the src folder from the SpaceInvaders folder. Open the Eclipse program. Install JavaFX following the instructions on this link: 
 
 https://bittlife.com/install-javafx-eclipse/
 
@@ -21,10 +21,10 @@ Create a new Java FX Project and import the GitHub project into Eclipse followin
 
 https://github.com/collab-uniba/socialcde4eclipse/wiki/How-to-import-a-GitHub-project-into-Eclipse
 
-Import the files from the SpaceInvaders folder to this Java Project. You will run the Menu.java from the GUI to start the game. A popup window will appear and the user can start playing the game. You may use another folder but you must make sure all the files are in the same folder. 
+Import the files from the src to this Java Project. You will run the Menu.java from the GUI to start the game. A popup window will appear and the user can start playing the game. You may use another folder but you must make sure all the files are in the same folder. 
 
 ## How to execute the game on Terminal
-Download all the files from this Github as a Zipped Download. Extract the src folder from the SpaceInvaders_Version3. Open a command prompt window and go to the directory where you saved the file. Ensure all the files are in the same directory. Assume it's C:. Type 'javac Menu.java' to compile your code. You will have to compile each file from the SpaceInvaders folder from Github. If there are no errors in your code, the command prompt will take you to the next line (Assumption: The path variable is set). Now, type 'java Menu' to run the game. You will be able to see the gamespace printed on the window.
+Download all the files from this Github as a Zipped Download. Extract the src folder from SpaceInvaders. Open a command prompt window and go to the directory where you saved the file. Ensure all the files are in the same directory. Assume it's C:. Type 'javac Menu.java' to compile your code. You will have to compile each file from the SpaceInvaders folder from Github. If there are no errors in your code, the command prompt will take you to the next line (Assumption: The path variable is set). Now, type 'java Menu' to run the game. You will be able to see the gamespace printed on the window.
  
 ### Final 
 When you have successfully downloaded the game, there will be aliens scattered throughout the black screen with the ship at the bottom.
