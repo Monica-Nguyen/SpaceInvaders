@@ -13,7 +13,7 @@ https://www.youtube.com/watch?v=klob1me6O6Q
 You will need to install JavaFx. Follow the instructions below.
 
 ## How to execute the game on Eclipse
-• Download all the files from the master branch as a Zipped Download. Extract the SpaceInvaders_Version3 folder. You will want to enter the src folder then the SpaceInvaders folder. Open the Eclipse program. Install JavaFX following the instructions on this link: 
+• Download all the files from the master branch as a Zipped Download. Extract the SpaceInvaders folder. You will want to enter the src folder then the SpaceInvaders folder. Open the Eclipse program. Install JavaFX following the instructions on this link: 
 
 https://bittlife.com/install-javafx-eclipse/
 
@@ -30,6 +30,8 @@ Download all the files from this Github as a Zipped Download. Extract the src fo
 When you have successfully downloaded the game, there will be aliens scattered throughout the black screen with the ship at the bottom.
 
 ![Space Invaders - Animated gif demo](Demo3.gif)
+THE NEW BETTER FINAL VERSION!!! 
+![Space Invaders - Animated gif demo](Final.gif)
 
 
 Hope you enjoy the game!
