@@ -21,10 +21,10 @@ Create a new Java FX Project and import the GitHub project into Eclipse followin
 
 https://github.com/collab-uniba/socialcde4eclipse/wiki/How-to-import-a-GitHub-project-into-Eclipse
 
-. Import the files from your desktop to this Java Project. You will run the Main.java file to start the game. A popup window will appear and the user can start playing the game. You may use another folder but you must make sure all the files are in the same folder. 
+. Import the files from your desktop to this Java Project. You will run the Menu.java file to start the game. A popup window will appear and the user can start playing the game. You may use another folder but you must make sure all the files are in the same folder. 
 
 ## How to execute the game on Terminal
-Download all the files from this Github as a Zipped Download. Extract the src folder from the SpaceInvaders_Version3 to your desktop. Open a command prompt window and go to the directory where you saved the file. Ensure all the files are in the same directory. Assume it's C:. Type 'javac Main.java' to compile your code. You will have to compile each file from Github. If there are no errors in your code, the command prompt will take you to the next line (Assumption: The path variable is set). Now, type 'java Main' to run the game. You will be able to see the gamespace printed on the window.
+Download all the files from this Github as a Zipped Download. Extract the src folder from the SpaceInvaders_Version3 to your desktop. Open a command prompt window and go to the directory where you saved the file. Ensure all the files are in the same directory. Assume it's C:. Type 'javac Menu.java' to compile your code. You will have to compile each file from Github. If there are no errors in your code, the command prompt will take you to the next line (Assumption: The path variable is set). Now, type 'java Menu' to run the game. You will be able to see the gamespace printed on the window.
  
 ### Final 
 When you have successfully downloaded the game, there will be aliens scattered throughout the black screen with the ship at the bottom.
