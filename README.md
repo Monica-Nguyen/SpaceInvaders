@@ -1,6 +1,6 @@
 # Space Invaders (Graphical User Interface) 
 
-A shooter game in which the player controls a laser ship to remove all aliens from the space. The Graphical User Interface (GUI) has aliens at the top and the ship at the bottom that the user controls at the bottom. The ship can be moved horizontally across the bottom of the screen using the right and left arrow keys while using spacebar to fire at aliens. The aliens can also shoot at the ship, which inflicts damage on the user. When three lives are gone, then the user dies (game over) or when the user successfully kills all aliens then the user wins. The objective of the game is to remove all aliens.
+A shooter game in which the player controls a laser ship to remove all aliens from the space. The Graphical User Interface (GUI) has aliens at the top and the ship at the bottom that the user controls at the bottom. The ship can be moved horizontally across the bottom of the screen using the right and left arrow keys while using spacebar to fire at aliens. Each time an alien is hit, the user gains points and the score can be seen on the screen. The aliens can also shoot at the ship, which inflicts damage on the user. When three lives are gone, then the user dies (game over). When the user successfully kills all aliens, the user wins the game. The objective of the game is to remove all aliens and receive the highest score possible.
 
 ## Prerequisites
 You will need to install JDK(Java Development Kit) and an IDE, for example Eclipse.
@@ -31,6 +31,5 @@ When you have successfully downloaded the game, there will be aliens scattered t
 
 ![Space Invaders - Animated gif demo](Demo3.gif)
 
-The game is still in progress. We still need to fix the bullets and add the colisions along with adding the scoring mechanism to the game. The bullets also need updating to shoot singular bullets at once. In addition, there should also be a collision between bullets from the aliens and the ship. 
 
 Hope you enjoy the game!
