@@ -30,7 +30,9 @@ Download all the files from this Github as a Zipped Download. Extract the src fo
 When you have successfully downloaded the game, there will be aliens scattered throughout the black screen with the ship at the bottom.
 
 ![Space Invaders - Animated gif demo](Demo3.gif)
-THE NEW BETTER FINAL VERSION!!! 
+
+# THE NEW BETTER FINAL VERSION!!! 
+
 ![Space Invaders - Animated gif demo](Final.gif)
 
 
