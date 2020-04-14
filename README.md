@@ -31,7 +31,7 @@ When you have successfully downloaded the game, there will be aliens scattered t
 
 ![Space Invaders - Animated gif demo](Demo3.gif)
 
-# THE NEW BETTER FINAL VERSION!!! 
+## THE NEW BETTER FINAL VERSION!!! 
 
 ![Space Invaders - Animated gif demo](Final.gif)
 
