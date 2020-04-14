@@ -30,8 +30,9 @@ public class Main extends Application {
     private double AlienCurrentPos = 0;
     private double AlienMoveBy = 2;
 
-    // private int Score = 0;
+    //creating game vars
     private double difficulty = 0;
+    private int level = 0;
 
     //vars for tracking the movement/shots of the ship
     private boolean right = false;
@@ -74,7 +75,7 @@ public class Main extends Application {
         //Creating Ship with parameters  : x,y,extend, health, shipImage, group
         Xship = new Ship(250,700,3,"Ship",root);
 
-        //Timeline creates a animation loop with timer for all game movement
+        //Time line creates a animation loop with timer for all game movement
         //For more information: https://docs.oracle.com/javase/8/javafx/api/javafx/animation/Timeline.html
         Timeline gameLoop = new Timeline(new KeyFrame(Duration.millis(16), t -> {
 
@@ -84,6 +85,12 @@ public class Main extends Application {
                 AlienList = new ArrayList<>(addAliens(root));
                 AlienMoveBy = 2+difficulty;
                 difficulty += 0.1;
+                level += 1;
+                String textToSet = "Level : ";
+                if (level <= 50) {
+                    textToSet = textToSet + "0";
+                }
+                scoreLabel.setText(textToSet + level);
             }
 
             //Initiating Alien Movement and loop during game
@@ -111,9 +118,6 @@ public class Main extends Application {
                 }
             }
 
-
-
-
 //          Gate keeping method to verify if the game should still be running using methods
 //          If either methods returns true then the game will be cleared and an end screen will be initiated
             if ((doneShipGame(Xship) || invadedAliens(AlienList))){
@@ -138,11 +142,11 @@ public class Main extends Application {
         		//sets the new root
                 stage.getScene().setRoot(pane);
             }
-        }));        	
-
+        }));
         //sets the time line for the aliens
         gameLoop.setCycleCount(Timeline.INDEFINITE);
         gameLoop.play();
+        
 
         //handler for if a key is pressed starting a move command
         //For more information on Event Handlers with key presses: https://docs.oracle.com/javafx/2/events/handlers.htm
@@ -312,7 +316,7 @@ public class Main extends Application {
 		playerLifes = new ImageView [3];
 		
 		for (int i =0;i < playerLifes.length; i++){
-			playerLifes[i] = new ImageView("res/green_boxCheckmark.png");
+			playerLifes[i] = new ImageView("res/shipLife.png");
 			playerLifes[i].setLayoutX(455+(i*50));
 			playerLifes[i].setLayoutY(80);
 			root.getChildren().add(playerLifes[i]);
@@ -323,4 +327,5 @@ public class Main extends Application {
 			root.getChildren().remove(playerLifes[playerLife]);
 			playerLife--;
 			}
+		
 }
