@@ -26,11 +26,14 @@ public class Menu extends Application  {
 	
 	private static final int WIDTH = 600;
 	private static final int HEIGHT = 800;
+	//anchor pane to organize the menu gui
+	//For more information: https://docs.oracle.com/javase/8/javafx/api/javafx/scene/layout/AnchorPane.html
 	private AnchorPane mainPane;
 	private Scene mainScene;
 	private Stage mainStage;
 	
-
+	//to set a position for the main menu button
+	//For more information: https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/Button.html
 	private final static int Menu_Button_x = 220;
 	private final static int Menu_Button_y = 220;
 	
@@ -40,6 +43,7 @@ public class Menu extends Application  {
 	
 	List<SpaceInvaderButton>menuButton;
 	
+	//https://docs.oracle.com/javafx/2/layout/builtin_layouts.htm
 	public Menu () {
 		
 		menuButton = new ArrayList();
@@ -58,27 +62,31 @@ public class Menu extends Application  {
 	public Stage getMainStage() {
 		return mainStage;
 	}
-	
+	//For more information: https://docs.oracle.com/javafx/2/layout/builtin_layouts.htm
+	//Used to create the menu buttons and set the layout
 	private void addMenuButton(SpaceInvaderButton button) {
 		button.setLayoutX(Menu_Button_x);
 		button.setLayoutY(Menu_Button_y + menuButton.size() * 150);
 		menuButton.add(button);
 		mainPane.getChildren().add(button);
 	}
+	////launches the game 
 	public static void main(String[] args) {
 	launch(args);
 }
 //	}
+	//to call the button methods created below 
 	private void createButton () {
 		createStartButton();
-	//	createScoretButton(); score is not working for now 
 		createExitButton();
-		ScoreElements();
+		
 		
 	}
 	
 	
-	
+	//creates the start button at the beginning of the game 
+	//For more information: https://docs.oracle.com/javase/8/javafx/api/javafx/event/ActionEvent.html
+	//For more information: https://docs.oracle.com/javafx/2/layout/builtin_layouts.htm
 	private void createStartButton() {
 		SpaceInvaderButton startButton = new SpaceInvaderButton("Start");
 		addMenuButton(startButton);
@@ -102,19 +110,10 @@ public class Menu extends Application  {
 	
 	}
 	
-	private void ScoreElements() {
-		//playerLife = 2;
-		pointsLabel = new ScoreLabel("SCORE : 00");
-		pointsLabel.setLayoutX(460);
-		pointsLabel.setLayoutY(20);
-		mainPane.getChildren().add(pointsLabel);
-		
-	}
+	// to exit the game at the begining without clicking start 
+	//https://docs.oracle.com/javase/8/javafx/api/javafx/event/ActionEvent.html
 	
-	private void createScoretButton() {
-		SpaceInvaderButton scoreButton = new SpaceInvaderButton("Score");
-		addMenuButton(scoreButton);
-	}
+	
 	private void createExitButton() {
 		SpaceInvaderButton exitButton = new SpaceInvaderButton("Exit");
 		addMenuButton(exitButton);
@@ -129,13 +128,17 @@ public class Menu extends Application  {
 			
 		});
 	}
-	
+	//creating the background image for the menu screen
+	//https://docs.oracle.com/javase/8/javafx/api/javafx/scene/layout/BackgroundImage.html
+	//https://docs.oracle.com/javase/8/javafx/api/javafx/scene/layout/Background.html
 	private void createBackground() {
 		Image backgroundImage = new Image("res/mainBackground.gif", 256,256, false, true);
 		BackgroundImage background = new BackgroundImage(backgroundImage, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, null );
 		mainPane.setBackground(new Background(background));
 	}
-	
+	//creating Logo for the main game 
+	//using mouseevent to show effects 
+	//https://docs.oracle.com/javase/8/javafx/api/javafx/scene/input/MouseEvent.html
 	private void createLogo() {
 		ImageView logo = new ImageView("res/Space_invaders_logo.png");
 		logo.setLayoutX(200);
