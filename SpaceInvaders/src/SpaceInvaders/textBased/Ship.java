@@ -1,11 +1,7 @@
 package SpaceInvaders.textBased;
 import java.util.ArrayList;
 
-public class Ship extends gameObjects{
-	
-	public Ship(double xP, double yP, int h) {
-		super(xP, yP, h);
-	}
+public class Ship{
 
 	public void move(ArrayList<ArrayList<Integer>> board, int col) {
 	    // Get the bottom row of the board generated in Alien class to add where the ship should be
