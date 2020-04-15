@@ -2,7 +2,7 @@ package SpaceInvaders.textBased;
 import java.util.ArrayList;
 
 public class Ship{
-
+	
 	public void move(ArrayList<ArrayList<Integer>> board, int col) {
 	    // Get the bottom row of the board generated in Alien class to add where the ship should be
 		ArrayList<Integer> bottomRow = board.get(board.size() - 1);
