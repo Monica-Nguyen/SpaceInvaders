@@ -12,7 +12,7 @@ public class Main {
 		String turn;
 		
 		Alien alien = new Alien();
-		Ship the_ship = new Ship(0, 0, 0);
+		Ship the_ship = new Ship();
 		
 		alien.createBoard();
 		ArrayList<ArrayList<Integer>> board = alien.Board;
