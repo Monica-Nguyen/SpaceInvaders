@@ -21,8 +21,6 @@ public abstract class MovableObject {
     //images of the bullets
     public final Image shipBulletImage = new Image(getClass().getResourceAsStream("/res/ShipBullet.png"));
     public final Image alienBulletImage = new Image(getClass().getResourceAsStream("/res/AlienBullet.png"));
-	
-    }
         
     // the default constructor for the GUI class
     public MovableObject(double xP, double yP, int h ,String type, Group root){
@@ -93,10 +91,6 @@ public abstract class MovableObject {
             //Checks to see if the x & y bound line up
             if (checkBounds(this.getX(), bullet.getX(), this.getExtend(), bullet.getExtend()) && checkBounds(this.getY(), bullet.getY(), this.getExtend(), bullet.getExtend()) )return true;
             else return false;
-
         }else return false;
     }
-
 }
-
-
