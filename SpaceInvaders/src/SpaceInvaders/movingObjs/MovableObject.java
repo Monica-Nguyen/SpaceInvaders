@@ -21,13 +21,7 @@ public abstract class MovableObject {
     //images of the bullets
     public final Image shipBulletImage = new Image(getClass().getResourceAsStream("/res/ShipBullet.png"));
     public final Image alienBulletImage = new Image(getClass().getResourceAsStream("/res/AlienBullet.png"));
-
-    
-    // constructor for text-based
-    public MovableObject(double xP, double yP, int h){
-        xPos = xP;
-        yPos = yP;
-        health = h;
+	
     }
         
     // the default constructor for the GUI class
